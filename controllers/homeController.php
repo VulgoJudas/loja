@@ -9,7 +9,10 @@ class homeController extends controller {
 
     public function index() {
         $dados = array();
+        $products=new Product();
 
+        $dados['product_list']=$products->getProducts();
+        
         $this->loadTemplate('home', $dados);
     }
 
