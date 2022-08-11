@@ -1,10 +1,10 @@
 <?php
 
 class Product extends Model{
-    public function getProducts(){
+    public function getProducts($offset=0,$limit=4){
         $array=[];
 
-        $db=$this->db->query("SELECT *,(select brands.name from brands where brands.id=products.id_brand) as brands_name,(select categories.name from categories where categories.id=products.id_categorie) as category_name FROM products");
+        $db=$this->db->query("SELECT *,(select brands.name from brands where brands.id=products.id_brand) as brands_name,(select categories.name from categories where categories.id=products.id_categorie) as category_name FROM products LIMIT $offset,$limit");
 
         if($db->rowCount()>0){
             $array=$db->fetchAll(PDO::FETCH_ASSOC);
@@ -15,6 +15,14 @@ class Product extends Model{
         }
 
         return $array;
+    }
+
+    public function getTotalItens(){
+
+        $sql=$this->db->query("SELECT COUNT(*) as c FROM products");
+        $sql=$sql->fetch();
+
+        return $sql['c'];
     }
 
     private function getImagesProducts($id_product){
