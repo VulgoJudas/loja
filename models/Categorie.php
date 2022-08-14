@@ -22,6 +22,51 @@ class Categorie extends Model{
         return $array;
     }
 
+
+    public function getCategorieTree($id_categorie){
+        $array=[];
+
+        $haveChild=true;
+
+        while($haveChild){
+
+            $sql=$this->db->prepare("SELECT * FROM categories WHERE id=:id");
+            $sql->bindValue(':id',$id_categorie);
+            $sql->execute();
+
+            if($sql->rowCount()>0){
+                $sql=$sql->fetch();
+                $array[]=$sql;
+
+                if(!empty($sql['sub'])){
+                    $id_categorie=$sql['sub'];
+                }else{
+                    $haveChild=false;
+                }
+            }
+        }
+
+        $array=array_reverse($array);
+
+        return $array;
+
+    }
+
+    public function getCategorieName($id_categorie){
+        $array=[];
+
+        $sql=$this->db->prepare("SELECT name FROM categories WHERE id=:id");
+        $sql->bindValue(':id',$id_categorie);
+        $sql->execute();
+
+        if($sql->rowCount()>0){
+            $array=$sql->fetch(PDO::FETCH_ASSOC);
+        }
+        
+
+        return $array;
+    }
+
     private function organizeCategory(&$array){
         foreach($array as $key=>$item){
             if(isset($array[$item['sub']])){

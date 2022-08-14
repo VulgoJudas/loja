@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/jquery-ui.min.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/jquery-ui.structure.min.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/jquery-ui.theme.min.css" type="text/css" />
 		<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css" type="text/css" />
 	</head>
 	<body>
@@ -72,12 +75,23 @@
 					        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php $this->lang->get("SELECTCATEGORY"); ?>
 					        <span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="#">Page 1-1</a></li>
-					          <li><a href="#">Page 1-2</a></li>
-					          <li><a href="#">Page 1-3</a></li>
+								<?php foreach($viewData['categories'] as $cat): ?>
+									<li><a href="<?php echo BASE_URL; ?>categories/enter/<?php echo $cat['id']; ?>"><?php echo $cat['name']; ?></a></li>
+
+									<?php if(count($cat['subs'])>0){
+										$this->loadView('menu_subcategory',array(
+											'subs'=>$cat['subs'],
+											'level'=>1
+										));
+									} ?>
+								<?php endforeach; ?>
 					        </ul>
 					      </li>
-						<li><a href="#">Categoria X</a></li>
+						  <?php if(isset($viewData['category_filter'])): ?>
+							<?php foreach($viewData['category_filter'] as $ct): ?>
+								<li><a href="<?php echo BASE_URL; ?>categories/enter/<?php echo $ct['id']; ?>"><?php echo $ct['name']; ?></a></li>
+							<?php endforeach; ?>
+						   <?php endif; ?>
 					</ul>
 				</div>
 			</nav>
@@ -89,7 +103,41 @@
 				  	<aside>
 				  		<h1><?php $this->lang->get("FILTER"); ?></h1>
 				  		<div class="filterarea">
+								<div class="filterBox">
+									<div class="filter_title"><?php $this->lang->get("BRANDS"); ?></div>
+									<div class="filter_content">
+										...
+									</div>
+								</div>
 
+								<div class="filterBox">
+									<div class="filter_title"><?php $this->lang->get("PRICE"); ?></div>
+									<div class="filter_content">
+										<input type="text" id="amount" readonly>
+										<div id="slader-range"></div>
+									</div>
+								</div>
+
+								<div class="filterBox">
+									<div class="filter_title"><?php $this->lang->get("RATING"); ?></div>
+									<div class="filter_content">
+										...
+									</div>
+								</div>
+
+								<div class="filterBox">
+									<div class="filter_title"><?php $this->lang->get("SALE"); ?></div>
+									<div class="filter_content">
+										...
+									</div>
+								</div>
+
+								<div class="filterBox">
+									<div class="filter_title"><?php $this->lang->get("OPTIONS"); ?></div>
+									<div class="filter_content">
+										...
+									</div>
+								</div>
 				  		</div>
 
 				  		<div class="widget">
@@ -209,9 +257,13 @@
 	    		</div>
 	    	</div>
 	    </footer>
-		<script type="text/javascript">var BASE_URL = '<?php echo BASE_URL; ?>';</script>
+		<script type="text/javascript">
+			var BASE_URL = '<?php echo BASE_URL; ?>';
+			var MAXSLIDE='<?php echo $viewData['maxSlide'] ?>';
+		</script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
 	</body>
 </html>

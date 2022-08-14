@@ -393,5 +393,20 @@ footer h3 {
 	width: 100%;
 }
 
+.filterBox{
+	border-bottom: 1px solid #bbb;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.filter_title{
+	color: #00ff00;
+	font-size: 18px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
 
 

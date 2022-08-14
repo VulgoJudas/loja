@@ -1,1 +1,1 @@
-É uma loja feita com o intuito de apredizagem,Fiz "Copiando" o porjeto da b7web.
+É uma loja feita com o intuito de apredizagem,Fiz Copiando o porjeto da b7web.
