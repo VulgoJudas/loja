@@ -409,4 +409,14 @@ footer h3 {
 }
 
 
+.filterItem{
+	height: 20px;
+	line-height: 20px;
+}
+.filterItem label{
+	font-weight: normal;
+	margin-left: 5px;
+}
+
+
 

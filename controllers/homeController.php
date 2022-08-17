@@ -11,6 +11,7 @@ class homeController extends controller {
         $dados = array();
         $products=new Product();
         $categories=new Categorie();
+        $f=new Filter();
 
         $currentPage=1;
         $offset=0;
@@ -21,6 +22,8 @@ class homeController extends controller {
         }
 
         $offset=($currentPage* $limit)-$limit;
+
+        $dados['filters']=$f->getFilters();
 
         $dados['product_list']=$products->getProducts($offset,$limit);
         $dados['total_itens']=$products->getTotalItens();

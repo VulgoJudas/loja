@@ -121,14 +121,56 @@
 								<div class="filterBox">
 									<div class="filter_title"><?php $this->lang->get("RATING"); ?></div>
 									<div class="filter_content">
-										...
+										<div class="filterItem">
+											<input type="checkbox" name="filter[star][]" value="1" id="filter_star1">
+											<label for="filter_star1">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+											</label>
+										</div>
+										<div class="filterItem">
+											<input type="checkbox" name="filter[star][]" value="2" id="filter_star2">
+											<label for="filter_star2">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+											</label>
+										</div>
+										<div class="filterItem">
+											<input type="checkbox" name="filter[star][]" value="3" id="filter_star3">
+											<label for="filter_star3">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+											</label>
+										</div>
+										<div class="filterItem">
+											<input type="checkbox" name="filter[star][]" value="4" id="filter_star4">
+											<label for="filter_star4">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+											</label>
+										</div>
+										<div class="filterItem">
+											<input type="checkbox" name="filter[star][]" value="5" id="filter_star5">
+											<label for="filter_star5">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+												<img src="<?php echo BASE_URL; ?>assets/images/star.png" width="13px" alt="Foto da Estrela(s)">
+											</label>
+										</div>
+										
 									</div>
 								</div>
 
 								<div class="filterBox">
 									<div class="filter_title"><?php $this->lang->get("SALE"); ?></div>
 									<div class="filter_content">
-										...
+										<div class="filterItem">
+											<input type="checkbox" name="filter[sale]" id="filter_sale"><label for="filter_sale"><?php $this->lang->get('SALE'); ?></label>
+										</div>
 									</div>
 								</div>
 
